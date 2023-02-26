@@ -53,14 +53,9 @@ export const heroesReducer = (state = userInitialState, action) => {
             state = {...state, favorites: {...state.favorites, [action.payload.name]: action.payload.gender}}
             return state;
         case REMOVE_FAVORITE:
-            state = {
-                ...state, favorites: Object.keys(state.favorites).filter(key =>
-                    key !== action.payload).reduce((obj, key) => {
-                        obj[key] = state.favorites[key];
-                        return obj;
-                    }, {}
-                )
-            }
+            let tempFavorites = {...state.favorites}
+            delete tempFavorites[action.payload]
+            state = {...state, favorites: {...tempFavorites}}
             return state;
         case KILL_ALL_FAVORITES:
             state = {...state, favorites: {}}

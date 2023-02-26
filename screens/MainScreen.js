@@ -12,7 +12,6 @@ import {
 import {killAllFavoritesThunk, setPageNumberThunk, setPageThunk} from "../redux/heroesReducer";
 import HeroLine from "../components/HeroLine";
 
-
 const MainScreen = () => {
 
     const dispatch = useDispatch()
@@ -107,7 +106,6 @@ const MainScreen = () => {
                 </TouchableOpacity>
             </View>
         </ImageBackground>
-
     )
 }
 

@@ -22,9 +22,8 @@ const HeroLine = ({hero}) => {
                 const homeWorld = await axios.get(hero.homeworld)
                 setHomeWorld(homeWorld.data.name)
             } catch (e) {
-                setHomeWorld("unknown")
+                setHomeWorld("")
             }
-
             try {
                 let speciesArray = []
                 for (let i = 0; i < hero.species.length; i++) {
@@ -36,7 +35,7 @@ const HeroLine = ({hero}) => {
                 }
                 setSpecies(speciesArray)
             } catch (e) {
-                setSpecies(["unknown"])
+                setSpecies([""])
             }
         }
         getInfo()
