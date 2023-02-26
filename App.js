@@ -1,34 +1,24 @@
-import { StyleSheet, Text, View } from 'react-native';
-
+import {StyleSheet, View} from 'react-native';
 import {Provider} from 'react-redux';
 
-import reducers from './redux/store';
-import {createStore, applyMiddleware} from 'redux';
-import {configureStore} from '@reduxjs/toolkit';
+
 import MainScreen from "./screens/MainScreen";
-
-import thunk from 'redux-thunk';
-
-const store = createStore(reducers, applyMiddleware(thunk))
-//const store = configureStore({reducer: reducers})
+import store from './redux/store'
 
 export default function App() {
-  return (
-      <View style={{flex: 1}}>
-          <Provider store={store}>
+    return (
+        <View style={s.container}>
+            <Provider store={store}>
+                <MainScreen/>
+            </Provider>
+        </View>
 
-          <MainScreen/>
-          </Provider>
-      </View>
-
-  );
+    );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const s = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'black'
+    }
 });

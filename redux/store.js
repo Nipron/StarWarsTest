@@ -1,6 +1,6 @@
-import {combineReducers} from 'redux'
+import {configureStore} from "@reduxjs/toolkit";
 import {heroesReducer} from './heroesReducer'
 
-const reducers = combineReducers({heroes: heroesReducer})
+const store = configureStore({reducer: {heroes: heroesReducer}})
 
-export default reducers;
+export default store;
