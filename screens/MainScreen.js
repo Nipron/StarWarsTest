@@ -31,7 +31,7 @@ const MainScreen = () => {
 
     useEffect(() => {
         setBlocked(false)
-    }, [heroes.currentPageNumber]);
+    }, [heroes.currentPage]);
 
     const handlePrev = () => {
         setBlocked(true)
