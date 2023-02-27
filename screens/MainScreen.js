@@ -35,18 +35,14 @@ const MainScreen = () => {
 
     const handlePrev = () => {
         setBlocked(true)
-        if (heroes?.currentPage?.previous) {
-            dispatch(setPageThunk(heroes.currentPage.previous))
-            dispatch(setPageNumberThunk(heroes.currentPageNumber - 1))
-        }
+        dispatch(setPageThunk(heroes.currentPage.previous))
+        dispatch(setPageNumberThunk(heroes.currentPageNumber - 1))
     }
 
     const handleNext = () => {
         setBlocked(true)
-        if (heroes?.currentPage?.next) {
-            dispatch(setPageThunk(heroes.currentPage.next))
-            dispatch(setPageNumberThunk(heroes.currentPageNumber + 1))
-        }
+        dispatch(setPageThunk(heroes.currentPage.next))
+        dispatch(setPageNumberThunk(heroes.currentPageNumber + 1))
     }
 
     return (<ImageBackground style={s.outer} source={require("../assets/background.jpg")}>
@@ -87,9 +83,12 @@ const MainScreen = () => {
                 />}
 
             <View style={s.footer}>
-                <TouchableOpacity style={[s.buttonWhite, (blocked || !heroes?.currentPage?.previous) && {backgroundColor: "#333333"}]} onPress={handlePrev}
-                                  disabled={blocked || !heroes?.currentPage?.previous}>
-                    <Text style={[s.buttonText, (blocked || !heroes?.currentPage?.previous) && {color: "#777777"}]}>Prev</Text>
+                <TouchableOpacity
+                    style={[s.buttonWhite, (blocked || !heroes?.currentPage?.previous) && {backgroundColor: "#333333"}]}
+                    onPress={handlePrev}
+                    disabled={blocked || !heroes?.currentPage?.previous}>
+                    <Text
+                        style={[s.buttonText, (blocked || !heroes?.currentPage?.previous) && {color: "#777777"}]}>Prev</Text>
                 </TouchableOpacity>
                 <Text style={s.pageText}>
                     {`${heroes?.currentPageNumber
@@ -100,9 +99,12 @@ const MainScreen = () => {
                                 : heroes.currentPage.count
                         )
                         : "0"} of ${heroes?.currentPage?.count || "0"}`}</Text>
-                <TouchableOpacity style={[s.buttonWhite, (blocked || !heroes?.currentPage?.next) && {backgroundColor: "#333333"}]} onPress={handleNext}
-                                  disabled={blocked || !heroes?.currentPage?.next}>
-                    <Text style={[s.buttonText, (blocked || !heroes?.currentPage?.next) && {color: "#777777"}]}>Next</Text>
+                <TouchableOpacity
+                    style={[s.buttonWhite, (blocked || !heroes?.currentPage?.next) && {backgroundColor: "#333333"}]}
+                    onPress={handleNext}
+                    disabled={blocked || !heroes?.currentPage?.next}>
+                    <Text
+                        style={[s.buttonText, (blocked || !heroes?.currentPage?.next) && {color: "#777777"}]}>Next</Text>
                 </TouchableOpacity>
             </View>
         </ImageBackground>
