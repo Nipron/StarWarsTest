@@ -38,7 +38,9 @@ const HeroLine = ({hero}) => {
                 setSpecies([""])
             }
         }
-        getInfo()
+        if (isOpen) {
+            getInfo()
+        }
     }, [isOpen])
 
     const isFavorite = !!heroes?.favorites?.[hero.name]
